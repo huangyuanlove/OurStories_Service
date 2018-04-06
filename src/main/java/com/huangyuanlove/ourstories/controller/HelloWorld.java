@@ -129,7 +129,7 @@ public class HelloWorld {
 
     public String testSessionAttributes() {
         User user = new User();
-        user.setUsername("xuan");
+        user.setName("xuan");
         user.setAge(23);
         user.setEmail("1@1.com");
 
@@ -168,7 +168,7 @@ public class HelloWorld {
         address.setProvince("bb");
         user.setEmail("1@123.com");
         user.setAge(11);
-        user.setUsername("xuan");
+        user.setName("xuan");
         user.setAddress(address);
         return user;
     }

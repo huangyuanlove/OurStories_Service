@@ -32,6 +32,19 @@ public interface UserService {
      */
     public User findUserByEmailAndPassword(String email,String password);
 
+
+    /**
+     * 删除
+     */
+    public int deleteUserById(int id);
+
+
+    /**
+     * 更新融云token
+     */
+    public int updateUerRongIMTokenById(String rongIMToken,int id);
+
+
     /**
      * 测试
      */

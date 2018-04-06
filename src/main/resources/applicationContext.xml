@@ -28,6 +28,7 @@
     <!--配置自动扫描的包-->
     <context:component-scan base-package="com.huangyuanlove.ourstories"/>
     <bean autowire="default" abstract="false" class="com.huangyuanlove.ourstories.entites.User"/>
+    <bean autowire="default" abstract="false" class="com.huangyuanlove.ourstories.entites.Confidence"/>
 
 
     <!-- 配置直接响应界面 -->
@@ -73,6 +74,12 @@
         <property name="mapperInterface" value="com.huangyuanlove.ourstories.mapper.UserMapper"/>
         <property name="sqlSessionFactory" ref="SqlSessionFactory"/>
     </bean>
+
+    <bean id="confidenceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.huangyuanlove.ourstories.mapper.ConfidenceMapper"/>
+        <property name="sqlSessionFactory" ref="SqlSessionFactory"/>
+    </bean>
+
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.huangyuanlove.ourstories.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
@@ -107,8 +114,8 @@
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.huangyuanlove.ourstories.serviceImpl.*.*(..))"/>
     </aop:config>
 
-    <!-- 商品管理的service -->
-    <bean id="itemsService" class="com.huangyuanlove.ourstories.serviceImpl.UserServiceImpl"/>
+    <bean id="userService" class="com.huangyuanlove.ourstories.serviceImpl.UserServiceImpl"/>
+    <bean id="confidenceService" class="com.huangyuanlove.ourstories.serviceImpl.ConfidenceServiceImpl"/>
 
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -118,8 +125,13 @@
     </bean>
 
     <!-- 拦截器 -->
-    <!--<mvc:interceptors>-->
-        <!--<bean class="com.huangyuanlove.ourstories.interceptors.TestCustomInterceptor"/>-->
-    <!--</mvc:interceptors>-->
-
+    <!--<mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="login"/>
+            <mvc:exclude-mapping path="regist"/>
+            <mvc:exclude-mapping path="logout"/>
+            <bean class="com.huangyuanlove.ourstories.interceptors.TokenAndIdInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
 </beans>

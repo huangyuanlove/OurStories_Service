@@ -5,17 +5,35 @@ package com.huangyuanlove.ourstories.entites;
  */
 public class User {
     private int id;
-    private String username;
+    private String name;
     private String email;
     private int age;
     private Address address;
+    private String password;
+    private String rongIMToken;
 
-    public String getUsername() {
-        return username;
+    public String getRongIMToken() {
+        return rongIMToken;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setRongIMToken(String rongIMToken) {
+        this.rongIMToken = rongIMToken;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String username) {
+        this.name = username;
     }
 
     public String getEmail() {
@@ -53,10 +71,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "username='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 ", address=" + address +
+                ", rongIMToken"+ rongIMToken +
                 '}';
     }
 }

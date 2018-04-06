@@ -33,6 +33,14 @@ public class UserServiceImpl implements UserService {
         return userMapper.findUserByEmailAndPWD(email,password);
     }
 
+    public int deleteUserById(int id) {
+        return userMapper.deleteUserById(id);
+    }
+
+    public int updateUerRongIMTokenById(String rongIMToken, int id) {
+        return userMapper.updateUserRongIMTokenById(rongIMToken,id);
+    }
+
     public List<TestBean> test() {
         return userMapper.test();
     }
